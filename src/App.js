@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
 import dogs from './dogs';
 import DogNav from './DogNav';
+import DogList from './DogList';
 
 // const dogs = [duke, perry, tubby, whiskey];
 
@@ -12,8 +13,8 @@ function App() {
       <BrowserRouter>
         <DogNav dogs={dogs} />
         <Switch>
-          <Route path="/dude"><p>dude</p></Route>
-          <Route><p>Home</p></Route>
+          <Route exact path="/dogs"><DogList dogs={dogs} /></Route>
+          <Redirect to="/dogs" />
         </Switch>
       </BrowserRouter>
     </div>
