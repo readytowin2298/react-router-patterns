@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 function DogList({dogs}){
     return (
@@ -10,13 +11,9 @@ function DogList({dogs}){
                 <Card.Body>
                   <Card.Title>{dog.name}</Card.Title>
                   <Card.Text>
-                    <ul>
-                        {dog.facts.map(fact => (
-                            <li key={fact}>{fact}</li>
-                        ))}
-                    </ul>
+                    {dog.facts[0]}
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Link className="btn btn-primary" to={`/dogs/${dog.name}`}>Check it out!</Link>
                 </Card.Body>
               </Card>
             ))}
